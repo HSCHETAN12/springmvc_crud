@@ -1,5 +1,7 @@
 package mvn.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
@@ -18,5 +20,19 @@ public class EmployeService {
 		dao.save(employee);
 		map.put("Success", "Record Added Success");
 		return "home.jsp";
+	}
+	
+	public String fetch(ModelMap map)
+	{
+		List<Employee> list=dao.fetchAll();
+		if(list.isEmpty())
+		{
+			map.put("Failure", "No Record Found");
+			return "home.jsp";
+		}
+		else {
+			map.put("list", list);
+			return "fetch.jsp";
+		}
 	}
 }

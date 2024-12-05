@@ -10,7 +10,7 @@
 <div align="center">
 <h1>Employee Record Entry</h1>
 <a href="add"><button>Add Record</button></a>
-<a href=""><button>Fetch Record</button></a>
+<a href="fetch"><button>Fetch Record</button></a>
 </div>
 </body>
 </html>

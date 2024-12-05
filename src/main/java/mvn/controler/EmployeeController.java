@@ -1,6 +1,7 @@
 package mvn.controler;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,6 +33,12 @@ public class EmployeeController {
 	public String add(Employee employe,ModelMap map)
 	{
 		return servic.add(employe,map);
+	}
+	
+	@GetMapping("/fetch")
+	public String fetch(ModelMap map)
+	{
+		return servic.fetch(map);
 	}
 
 }

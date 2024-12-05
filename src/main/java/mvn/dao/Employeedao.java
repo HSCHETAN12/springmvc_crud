@@ -1,5 +1,7 @@
 package mvn.dao;
 
+import java.util.List;
+
 import java.util.logging.ErrorManager;
 
 import javax.persistence.EntityManager;
@@ -24,4 +26,9 @@ public class Employeedao {
 		transaction.commit();
 	}
 	
-}
+	public List<Employee> fetchAll()
+	{
+		return manager.createNativeQuery("select * from employee",Employee.class).getResultList();
+	}
+	
+}	
