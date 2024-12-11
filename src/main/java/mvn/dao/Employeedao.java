@@ -30,5 +30,21 @@ public class Employeedao {
 	{
 		return manager.createNativeQuery("select * from employee",Employee.class).getResultList();
 	}
+
+	public Employee find(int id) {
+		return manager.find(Employee.class, id);
+	}
+
+	public void delete(Employee employee) {
+		transaction.begin();
+		manager.remove(employee);
+		transaction.commit();
+	}
+
+	public void update(Employee employee) {
+		transaction.begin();
+		manager.merge(employee);
+		transaction.commit();
+	}
 	
 }	
